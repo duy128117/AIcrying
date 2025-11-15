@@ -1,6 +1,5 @@
-# convert_to_tflite.py (đã sửa đổi)
 import tensorflow as tf
-import keras  # Thêm thư viện keras
+import keras  
 import numpy as np
 import argparse
 import os
@@ -21,11 +20,8 @@ if __name__ == "__main__":
     parser.add_argument("--quantize", action='store_true', help="apply int8 quantization")
     args = parser.parse_args()
 
-    # SỬA Ở ĐÂY: Dùng keras.models.load_model thay vì tf.keras
     model = keras.models.load_model(args.keras_model)
-    
-    # Phần còn lại giữ nguyên vì TFLiteConverter là công cụ của TensorFlow
-    # và nó hoàn toàn tương thích với mô hình Keras.
+
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
 
     if args.quantize:

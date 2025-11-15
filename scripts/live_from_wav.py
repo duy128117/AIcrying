@@ -1,4 +1,3 @@
-# live_from_wav.py (đã cập nhật, không dùng cv2)
 import numpy as np
 import argparse
 import librosa
@@ -6,10 +5,8 @@ import tensorflow as tf
 import sounddevice as sd
 from scipy.io.wavfile import write
 import time
-# MỚI: Dùng thư viện Pillow thay cho cv2
 from PIL import Image
 
-# --- HÀM TẠO ẢNH SPECTROGRAM (Không dùng cv2) ---
 def audio_to_spectrogram_image(audio_segment, sr=16000, target_shape=(128, 128)):
     mel_spectrogram = librosa.feature.melspectrogram(y=audio_segment, sr=sr, n_mels=128)
     log_mel_spectrogram = librosa.power_to_db(mel_spectrogram, ref=np.max)

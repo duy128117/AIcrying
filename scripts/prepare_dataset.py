@@ -81,23 +81,19 @@ def add_noise_manual(signal, noise_files, sr, min_snr_db=10.0, max_snr_db=40.0):
 
 def main(args):
     classes = sorted([d for d in os.listdir(args.dataset_dir) if os.path.isdir(os.path.join(args.dataset_dir, d))])
-    
     print(f"Đã phát hiện {len(classes)} lớp: {classes}")
-
     noise_dir = os.path.join(os.path.dirname(args.dataset_dir), 'background_noises')
     noise_files = []
     if os.path.exists(noise_dir):
         noise_files = glob.glob(os.path.join(noise_dir, "*.wav"))
-    
     if noise_files: 
         print(f"Tìm thấy {len(noise_files)} file nhiễu nền.")
     else:
         print("Không tìm thấy thư mục 'background_noises' hoặc không có file .wav nào bên trong.")
-
     X_list = []
     y_list = []
     target_shape = (128, 128)
-    
+
     for idx, cls in enumerate(classes):
         class_path = os.path.join(args.dataset_dir, cls)
         if not os.path.isdir(class_path):

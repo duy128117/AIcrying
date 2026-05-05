@@ -1,13 +1,13 @@
 # Baby Sleep Tracker
 
-Baby Sleep Tracker là dự án kết hợp giữa **phần AI nhận diện tiếng khóc** và **ứng dụng Flutter giám sát bé**. Trong toàn bộ hệ thống, phần AI được phát triển kỹ hơn và xuất hiện nhiều hơn ở luồng xử lý, còn Flutter đóng vai trò giao diện để hiển thị dữ liệu, cảnh báo và hỗ trợ người dùng thao tác.
+Baby Sleep Tracker là dự án kết hợp giữa **phần AI nhận diện tiếng khóc** và **ứng dụng Flutter giám sát bé**. Hệ thống có khả năng **thu âm trực tiếp** từ môi trường và phát hiện tiếng khóc real-time, không chỉ xử lý những file âm thanh được gửi đến.
 
-Mục tiêu của dự án là hỗ trợ phụ huynh theo dõi tình trạng của bé theo thời gian thực, bao gồm:
+Mục tiêu của dự án là hỗ trợ phụ huynh theo dõi tình trạng của bé 24/7, bao gồm:
 
-- phát hiện tiếng khóc từ âm thanh
+- **phát hiện tiếng khóc ngay lập tức** từ audio trực tiếp
 - theo dõi nhiệt độ, độ ẩm và tư thế ngủ
-- hiển thị cảnh báo khi có dấu hiệu bất thường
-- xem lại lịch sử dữ liệu để tiện đánh giá
+- gửi cảnh báo khi có dấu hiệu bất thường
+- lưu lại lịch sử dữ liệu để có thể xem lại muộn
 
 ---
 
@@ -24,14 +24,17 @@ Hệ thống được xây theo luồng khá đơn giản:
 
 ## Phần AI
 
-Phần AI là phần được đầu tư nhiều hơn trong dự án vì nó xử lý trực tiếp bài toán nhận diện tiếng khóc.
+Phần AI là phần được đầu tư nhiều hơn trong dự án. Nó có khả năng:
 
-### Đầu vào
+- **thu âm trực tiếp** từ thiết bị hoặc sử dụng file `.wav` đã có sẵn
+- xử lý audio real-time để phát hiện tiếng khóc ngay khi có
+- hoạt động liên tục trong background
 
-- file âm thanh `.wav`
-- âm thanh được chia thành các đoạn 2 giây
+### Quá trình xử lý
+
+- audio được chia thành các đoạn 2 giây
 - mỗi đoạn được chuyển sang Mel-spectrogram
-- ảnh đầu ra được resize về `128 x 128 x 3`
+- ảnh spectrogram được resize về `128 x 128 x 3`
 
 ### Đầu ra
 
@@ -118,14 +121,6 @@ PBL4/
 ├── doc/       # tài liệu nghiên cứu và báo cáo
 └── README.md  # mô tả tổng quan dự án
 ```
-
----
-
-## Ghi chú ngắn cho người xem
-
-- Phần AI là phần có khối lượng xử lý nhiều hơn và là phần nổi bật của dự án.
-- Phần Flutter chủ yếu phục vụ hiển thị, cảnh báo và tương tác người dùng.
-- Hai phần được tách riêng để dễ phát triển và bảo trì.
 
 ---
 

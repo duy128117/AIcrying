@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# AI project artifacts
+ai/dataset/raw/
+ai/dataset/background_noises/
+ai/dataset/features.npz
+ai/model/
+ai/test_audio/
+ai/scripts/*.tflite
+ai/scripts/__pycache__/
+
+# Flutter / Dart
+**/.dart_tool/
+**/build/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# Documentation binaries
+doc/*.docx

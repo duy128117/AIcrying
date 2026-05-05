@@ -22,9 +22,7 @@ Hệ thống được xây theo luồng khá đơn giản:
 
 ---
 
-## Phần AI
-
-Phần AI là phần được đầu tư nhiều hơn trong dự án. Nó có khả năng:
+## Về phía AI
 
 - **thu âm trực tiếp** từ thiết bị hoặc sử dụng file `.wav` đã có sẵn
 - xử lý audio real-time để phát hiện tiếng khóc ngay khi có
@@ -60,7 +58,7 @@ Phần AI là phần được đầu tư nhiều hơn trong dự án. Nó có kh
 
 ---
 
-## Phần Flutter
+## Về phía Flutter
 
 Phần Flutter là giao diện theo dõi dành cho phụ huynh hoặc người chăm sóc. Ứng dụng hiển thị trạng thái bé, nhận cảnh báo và cho phép cấu hình một số thông số cơ bản.
 
@@ -86,29 +84,41 @@ Phần Flutter là giao diện theo dõi dành cho phụ huynh hoặc người c
 
 ## Tech stack
 
-### AI
+### AI & Data Science
 
+**Core**
 - Python
 - TensorFlow / Keras
+
+**Audio Processing**
 - librosa
-- scikit-learn
+- sounddevice
+- soundfile
+
+**Math & Tools**
 - NumPy
+- Scikit-learn
+- Matplotlib
 - Pillow
-- matplotlib
-- soundfile, sounddevice
 
-### Flutter
+### Mobile & Backend
 
+**Framework**
 - Flutter / Dart
+
+**Cloud**
 - Firebase Authentication
 - Firebase Realtime Database
 - Firebase Cloud Messaging
+
+**Hardware Integration & UI**
 - flutter_background_service
 - flutter_local_notifications
 - qr_flutter
-- mobile_scanner
+- mobile_scanner (QR scanner và liên kết thiết bị)
 - fl_chart
 - shared_preferences
+- connectivity_plus
 
 ---
 
